@@ -1,9 +1,18 @@
 import { Switch, Route } from "react-router-dom";
 import logo from "./logo.svg";
+import HomePage from "./Pages/HomePage";
 import "./App.css";
 
 function App() {
-  return <div className="App">Hell</div>;
+  return (
+    <>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </>
+  );
 }
 
 export default App;
