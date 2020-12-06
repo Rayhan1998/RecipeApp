@@ -9,8 +9,15 @@ export default function Navbar(props) {
       <Image src={logo} objectFit="cover" alt="logo" h="40px"></Image>
       <Form>
         <SearchField type="text"></SearchField>
-        <button className="search__btn btn">Search</button>
+        <button className="search__btn btn">
+          <span className="search__Icon"></span>
+          <span>Search</span>
+        </button>
       </Form>
+
+      <h3>
+        <i class="far fa-bookmark"></i>Booksmarks
+      </h3>
     </Header>
   );
 }
@@ -40,4 +47,8 @@ const SearchField = styled.input`
   color: inherit;
   font-size: 1.7rem;
   width: 30rem;
+
+  &:focus {
+    outline: none;
+  }
 `;
