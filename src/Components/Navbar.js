@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import logo from "../img/logo.png";
 import styled from "styled-components";
-import { Image, Button } from "@chakra-ui/react";
-export default function Navbar(props) {
+import { Image } from "@chakra-ui/react";
+export default function Navbar({
+  setUserSearch,
+  userSearch,
+  setSearchResults,
+  searchResults
+}) {
+  const [isFormSubmit, setIsFormSubmit] = useState(false);
+  const formSubmit = e => {
+    e.preventDefault();
+    setIsFormSubmit(true);
+  };
+
+  const inputHandler = e => {
+    setUserSearch(e.target.value);
+  };
+  // Useeffect calles api and stores the data into an array
+  useEffect(() => {
+    axios
+      .get(
+        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${userSearch}&key=a0eb0135-3c80-4a50-b545-d3f6434f4b4a`
+      )
+      .then(function(res) {
+        console.log(res);
+        setSearchResults(res.data.data.recipes);
+
+        setIsFormSubmit(false);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }, [isFormSubmit]);
+
   return (
     <Header>
       <Image src={logo} objectFit="cover" alt="logo" h="40px"></Image>
-      <Form>
-        <SearchField type="text"></SearchField>
+      <Form onSubmit={formSubmit}>
+        <SearchField
+          type="text"
+          value={userSearch}
+          onChange={inputHandler}
+        ></SearchField>
         <button className="search__btn btn">
           <span className="search__Icon"></span>
           <span>Search</span>
@@ -16,7 +52,7 @@ export default function Navbar(props) {
       </Form>
 
       <h3>
-        <i class="far fa-bookmark"></i>Booksmarks
+        <i className="far fa-bookmark"></i>Booksmarks
       </h3>
     </Header>
   );
