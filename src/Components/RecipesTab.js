@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export default function RecipesTabs(props) {
   return (
-    <Box h="80px" w="100%" bg="red" mt="10px" mb="10px">
+    <RecipesTabWrapper>
       <Link>
         <Figure>
           <Image src={props.img} alt=""></Image>
@@ -14,10 +14,23 @@ export default function RecipesTabs(props) {
           <p className="previewPublisher">{props.publisher}</p>
         </PreviewDataWrapper>
       </Link>
-    </Box>
+    </RecipesTabWrapper>
   );
 }
 
+const RecipesTabWrapper = styled.div`
+  height: 90px;
+  width: 100%;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #f9f5f3;
+    transform: translateY(-2px);
+  }
+`;
 const Link = styled.a`
   display: flex;
   align-items: center;
