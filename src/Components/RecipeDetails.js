@@ -32,7 +32,15 @@ export default function RecipeDetails({ RecipeId }) {
   return (
     <Box w="70%" h="100%" bg="pink" bg="#f9f5f3">
       {recipeDetails == undefined ? (
-        <h1>Hello</h1>
+        <Box
+          maxWidth="100%"
+          margin="0 auto"
+          padding="5rem 4rem"
+          display="flex"
+          height="1200px"
+        >
+          <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+        </Box>
       ) : (
         <>
           {" "}
@@ -70,51 +78,21 @@ export default function RecipeDetails({ RecipeId }) {
             </h1>
           </figure>
           <RecipeInfo>
-            <h2>{`${recipeDetails.cooking_time} minutes`}</h2>
-            <div className="servings">
-              <h1>{`${recipeDetails.servings}`}</h1>
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-plus-circle"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                />
-              </svg>
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-dash-circle"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
-                />
-              </svg>
-            </div>
-            <Box></Box>
+            <h2
+              style={{ fontSize: "18px" }}
+            >{`${recipeDetails.cooking_time} minutes`}</h2>
+
+            <h1 style={{ fontSize: "18px" }}>
+              {`${recipeDetails.servings} Servings`}{" "}
+            </h1>
+
             <Box display="flex" alignItems="center">
               <svg
+                style={{ color: "orange" }}
                 width="1em"
                 height="1em"
                 viewBox="0 0 16 16"
-                class="bi bi-bookmark-fill"
+                className="bi bi-bookmark-fill"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -123,12 +101,14 @@ export default function RecipeDetails({ RecipeId }) {
                   d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"
                 />
               </svg>
-              <h2>Bookmark</h2>
+              <h2 style={{ fontSize: "18px" }} className="bookmark">
+                Bookmark
+              </h2>
             </Box>
           </RecipeInfo>
           <RecipeIngrediants>
             <h2 className="heading-2">Recipe Ingrediants</h2>
-            <ul class="recipe__ingredient-list">
+            <ul className="recipe__ingredient-list">
               {recipeDetails.ingredients.map((rec, i) => {
                 return (
                   <li className="ingrediants" key={i}>
@@ -181,19 +161,14 @@ const RecipeInfo = styled.div`
   height: 150px;
   align-items: center;
 
-  .servings {
-    display: flex;
-    align-items: center;
-    width: 55px;
-    justify-content: space-evenly;
-  }
   .logo {
-    margin-left: ;
+    margin-left: 10px;
   }
 `;
 
 const RecipeIngrediants = styled.div`
   padding: 10px;
+  padding-bottom: 100px;
 
   font-size: 1.6rem;
   line-height: 1.4;
@@ -233,7 +208,8 @@ const RecipeDirections = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 100vh;
+  padding-top: 50px;
 
   .heading--2 {
     font-size: 2rem;

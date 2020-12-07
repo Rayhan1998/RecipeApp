@@ -3,6 +3,13 @@ import { Box } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 export default function RecipesTabs(props) {
+  let { title } = props;
+  let newTitle =
+    title
+      .split("")
+      .splice(0, 25)
+      .join("") + "...";
+
   return (
     <RecipesTabWrapper
       onClick={() => {
@@ -11,11 +18,13 @@ export default function RecipesTabs(props) {
     >
       <Link to={`/${props.id}`} style={{ textDecoration: "none" }}>
         <Ancor>
-          <Figure className="img">
+          <Figure style={{ marginLeft: "5px" }}>
             <Image src={props.img} alt={props.title}></Image>
           </Figure>
           <PreviewDataWrapper>
-            <h4 className="previewTitle">{props.title}</h4>
+            <h4 className="previewTitle">
+              {title.length < 25 ? title : newTitle}
+            </h4>
             <p className="previewPublisher">{props.publisher}</p>
           </PreviewDataWrapper>
         </Ancor>
@@ -29,7 +38,7 @@ const RecipesTabWrapper = styled.div`
   width: 100%;
   margin-top: 13px;
   margin-bottom: 13px;
-  margin-left: 10px;
+
   display: flex;
   align-items: center;
 
