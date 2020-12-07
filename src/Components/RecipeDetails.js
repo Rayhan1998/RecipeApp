@@ -32,7 +32,7 @@ export default function RecipeDetails({ RecipeId }) {
   console.log(recipeDetails);
 
   return (
-    <Box w="70%" h="1200px" bg="pink" bg="#f9f5f3">
+    <Box w="70%" h="1100px" bg="pink" bg="#f9f5f3">
       {recipeDetails == undefined ? (
         <h1>Hello</h1>
       ) : (
