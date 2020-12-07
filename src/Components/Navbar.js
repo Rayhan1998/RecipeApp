@@ -58,7 +58,7 @@ export default function Navbar({
 }
 
 const Header = styled.header`
-  height: 70px;
+  height: 100px;
   padding: 20px;
   background-color: #f9f5f3;
   display: flex;

@@ -5,7 +5,7 @@ import RecipesTab from "../Components/RecipesTab";
 
 export default function RecipesSidebar({ searchResults, getRecipeId }) {
   return (
-    <Box w="30%" h="990px">
+    <Box w="30%" h="1200px">
       {searchResults.map(rec => {
         return (
           <RecipesTab

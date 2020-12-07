@@ -9,7 +9,7 @@ export default function RecipesTabs(props) {
         props.getRecipeId(props.id);
       }}
     >
-      <Link to={`/${props.id}`}>
+      <Link to={`/${props.id}`} style={{ textDecoration: "none" }}>
         <Ancor>
           <Figure className="img">
             <Image src={props.img} alt={props.title}></Image>
@@ -43,6 +43,7 @@ const Ancor = styled.div`
 
   transition: all 0.3s;
   border-right: 1px solid #fff;
+  text-decoration: none;
 `;
 
 const Figure = styled.figure`

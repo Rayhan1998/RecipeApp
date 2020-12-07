@@ -17,7 +17,7 @@ export default function HomePage() {
   };
 
   return (
-    <Box maxW="80rem" h="1000%" bg="white" m="50px auto" borderRadius="9px">
+    <Box maxW="80rem" h="1200px" bg="white" m="50px auto" borderRadius="9px">
       <Navbar
         setUserSearch={setUserSearch}
         userSearch={userSearch}
