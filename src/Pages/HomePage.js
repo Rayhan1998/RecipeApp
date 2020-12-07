@@ -10,14 +10,21 @@ import RecipeDetails from "../Components/RecipeDetails";
 export default function HomePage() {
   const [userSearch, setUserSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [modifiedResults, setModifiedResults] = useState(searchResults);
   const [clickedRecipeId, setClickedRecipeId] = useState(undefined);
+
   const { recipeId } = useParams();
   const getRecipeId = id => {
     setClickedRecipeId(id);
   };
 
+  useEffect(() => {
+    setModifiedResults(searchResults.splice(0, 10));
+    console.log(modifiedResults);
+  }, [searchResults]);
+
   return (
-    <Box maxW="80rem" h="1200px" bg="white" m="50px auto" borderRadius="9px">
+    <Box maxW="80rem" minH="1200px" bg="white" m="50px auto" borderRadius="9px">
       <Navbar
         setUserSearch={setUserSearch}
         userSearch={userSearch}
@@ -26,7 +33,7 @@ export default function HomePage() {
       />
       <div style={{ display: "flex" }}>
         <RecipesSidebar
-          searchResults={searchResults}
+          searchResults={modifiedResults}
           getRecipeId={getRecipeId}
         />
         <RecipeDetails RecipeId={recipeId} />

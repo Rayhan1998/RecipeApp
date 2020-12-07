@@ -29,6 +29,7 @@ const RecipesTabWrapper = styled.div`
   width: 100%;
   margin-top: 13px;
   margin-bottom: 13px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
 

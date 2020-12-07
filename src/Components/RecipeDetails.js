@@ -29,10 +29,8 @@ export default function RecipeDetails({ RecipeId }) {
       });
   }, [RecipeId]);
 
-  console.log(recipeDetails);
-
   return (
-    <Box w="70%" h="1100px" bg="pink" bg="#f9f5f3">
+    <Box w="70%" h="100%" bg="pink" bg="#f9f5f3">
       {recipeDetails == undefined ? (
         <h1>Hello</h1>
       ) : (
@@ -158,13 +156,18 @@ export default function RecipeDetails({ RecipeId }) {
           <RecipeDirections>
             <h2 className="heading--2">HOW TO COOK IT</h2>
             <p className="recipe__directions-text">
-              This recipe was carefully designed and tested by My Baking
-              Addiction. Please check out directions at their website.
+              {`This recipe was carefully designed and tested by ${recipeDetails.publisher}. Please check out directions at their website.`}
             </p>
-            <button className="search__btn btn">
-              <span className="search__Icon"></span>
-              <span>Directions</span>
-            </button>
+            <a
+              className="btn--small recipe__btn"
+              href={`${recipeDetails.source_url}`}
+              target="_blank"
+            >
+              <button className="search__btn btn">
+                <span className="search__Icon"></span>
+                <span>Directions</span>
+              </button>
+            </a>
           </RecipeDirections>
         </>
       )}
@@ -191,7 +194,7 @@ const RecipeInfo = styled.div`
 
 const RecipeIngrediants = styled.div`
   padding: 10px;
-  height: 300px;
+
   font-size: 1.6rem;
   line-height: 1.4;
   background-color: #f2efee;
@@ -230,6 +233,7 @@ const RecipeDirections = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 
   .heading--2 {
     font-size: 2rem;
@@ -245,5 +249,12 @@ const RecipeDirections = styled.div`
     text-align: center;
     margin-bottom: 2.5rem;
     color: #918581;
+  }
+
+  .btn--small, .btn--small: link, .btn--small: visited {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1.25rem 2.25rem;
+    text-decoration: none;
   }
 `;
