@@ -26,7 +26,6 @@ export default function Navbar({
         `https://forkify-api.herokuapp.com/api/v2/recipes?search=${userSearch}&key=c3414168-d8c1-439f-b9bc-b60f414dae75`
       )
       .then(function(res) {
-        console.log(res);
         setSearchResults(res.data.data.recipes);
 
         setIsFormSubmit(false);

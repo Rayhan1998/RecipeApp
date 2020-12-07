@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
+import axios from "axios";
 
 export default function RecipeDetails({ RecipeId }) {
+  useEffect(() => {
+    axios
+      .get(
+        `https://forkify-api.herokuapp.com/api/v2/recipes/${RecipeId}?key=c3414168-d8c1-439f-b9bc-b60f414dae75`
+      )
+      .then(res => {
+        console.log(res);
+      });
+  }, [RecipeId]);
+
   console.log(RecipeId);
   return (
     <Box w="70%" h="990px" bg="pink">
