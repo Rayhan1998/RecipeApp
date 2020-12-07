@@ -1,18 +1,24 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export default function RecipesTabs(props) {
   return (
-    <RecipesTabWrapper>
-      <Link>
-        <Figure>
-          <Image src={props.img} alt=""></Image>
-        </Figure>
-        <PreviewDataWrapper>
-          <h4 className="previewTitle">{props.title}</h4>
-          <p className="previewPublisher">{props.publisher}</p>
-        </PreviewDataWrapper>
+    <RecipesTabWrapper
+      onClick={() => {
+        props.getRecipeId(props.id);
+      }}
+    >
+      <Link to={`/${props.id}`}>
+        <Ancor>
+          <Figure className="img">
+            <Image src={props.img} alt={props.title}></Image>
+          </Figure>
+          <PreviewDataWrapper>
+            <h4 className="previewTitle">{props.title}</h4>
+            <p className="previewPublisher">{props.publisher}</p>
+          </PreviewDataWrapper>
+        </Ancor>
       </Link>
     </RecipesTabWrapper>
   );
@@ -31,13 +37,12 @@ const RecipesTabWrapper = styled.div`
     transform: translateY(-2px);
   }
 `;
-const Link = styled.a`
+const Ancor = styled.div`
   display: flex;
   align-items: center;
 
   transition: all 0.3s;
   border-right: 1px solid #fff;
-  text-decoration: none;
 `;
 
 const Figure = styled.figure`

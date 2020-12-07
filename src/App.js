@@ -7,7 +7,10 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/:recipeId">
+          <HomePage />
+        </Route>
+        <Route path="/">
           <HomePage />
         </Route>
       </Switch>

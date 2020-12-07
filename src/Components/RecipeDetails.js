@@ -1,7 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-export default function RecipeDetails() {
+export default function RecipeDetails({ RecipeId }) {
+  console.log(RecipeId);
   return (
     <Box w="70%" h="990px" bg="pink">
       <div class="recipe__details">
