@@ -12,9 +12,6 @@ export default function HomePage() {
   const [searchResults, setSearchResults] = useState([]);
   const [modifiedResults, setModifiedResults] = useState(searchResults);
   const [clickedRecipeId, setClickedRecipeId] = useState(undefined);
-  const [errorText, setErrorText] = useState(null);
-  const [bookmarks, setBookmarks] = useState([]);
-  const [bookMarkDisplay, setBookMarkDisplay] = useState(false);
 
   const { recipeId } = useParams();
   const getRecipeId = id => {
@@ -22,8 +19,8 @@ export default function HomePage() {
   };
 
   useEffect(() => {
+    //   Saves only the first 10 items in the array
     setModifiedResults(searchResults.splice(0, 10));
-    console.log(modifiedResults);
   }, [searchResults]);
 
   return (
@@ -32,24 +29,14 @@ export default function HomePage() {
         setUserSearch={setUserSearch}
         userSearch={userSearch}
         setSearchResults={setSearchResults}
-        searchResults={searchResults}
-        setErrorText={setErrorText}
       />
       <div style={{ display: "flex" }}>
         <RecipesSidebar
           searchResults={modifiedResults}
           getRecipeId={getRecipeId}
-          errorText={errorText}
-          setErrorText={setErrorText}
           clickedRecipeId={clickedRecipeId}
-          bookmarks={bookmarks}
         />
-        <RecipeDetails
-          RecipeId={recipeId}
-          bookmarks={bookmarks}
-          setBookmarks={setBookmarks}
-          bookMarkDisplay={bookMarkDisplay}
-        />
+        <RecipeDetails RecipeId={recipeId} />
       </div>
     </Box>
   );

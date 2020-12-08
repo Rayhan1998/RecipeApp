@@ -5,15 +5,9 @@ import { Spinner } from "@chakra-ui/spinner";
 import axios from "axios";
 import styled from "styled-components";
 
-export default function RecipeDetails({ RecipeId, bookmarks, setBookmarks }) {
+export default function RecipeDetails({ RecipeId }) {
   const [recipeDetails, setRecipesDetails] = useState(undefined);
   const [isrecipeLoading, setIsRecipeLoading] = useState(true);
-
-  const addBookmark = id => {
-    setBookmarks([...bookmarks, recipeDetails]);
-  };
-
-  console.log(bookmarks);
 
   if (recipeDetails != undefined) {
     var {
@@ -107,28 +101,6 @@ export default function RecipeDetails({ RecipeId, bookmarks, setBookmarks }) {
             <h1 style={{ fontSize: "25px" }}>
               {`${recipeDetails.servings} Servings`}{" "}
             </h1>
-
-            <button
-              className="btn--round btn--bookmark"
-              onClick={() => {
-                addBookmark(recipeDetails.id);
-              }}
-            >
-              <svg
-                style={{ color: "orange" }}
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                className="bi bi-bookmark-fill"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"
-                />
-              </svg>
-            </button>
           </RecipeInfo>
           <RecipeIngrediants>
             <h2 className="heading-2">Recipe Ingrediants</h2>

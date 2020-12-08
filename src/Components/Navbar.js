@@ -53,27 +53,6 @@ export default function Navbar({
           <span>Search</span>
         </button>
       </Form>
-
-      <div
-        style={{ display: "flex", alignItems: "center" }}
-        className="bookmark-logo"
-      >
-        <svg
-          width="1em"
-          height="1em"
-          viewBox="0 0 16 16"
-          class="bi bi-bookmark-fill"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ color: "orange" }}
-        >
-          <path
-            fill-rule="evenodd"
-            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"
-          />
-        </svg>
-        Booksmarks
-      </div>
     </Header>
   );
 }
@@ -85,30 +64,6 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  .bookmark-logo {
-      height: 100%;
-    font-family: inherit;
-    color: inherit;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0 1.5rem;
-    transition: all .3s;
-    display: flex;
-    align-items: center;
-}
-
-.bookmark-logo:hover {
-    
-    background-color: #d3c7c3;
-    transform: translateY(-2px);
-  
-}
-  }
 `;
 
 const Form = styled.form`
