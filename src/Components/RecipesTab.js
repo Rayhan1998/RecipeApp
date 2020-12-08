@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 export default function RecipesTabs(props) {
   let { title } = props;
+  // creates new title if recipe title length exceed 25
   let newTitle =
     title
       .split("")

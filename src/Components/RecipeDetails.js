@@ -9,28 +9,17 @@ export default function RecipeDetails({ RecipeId }) {
   const [recipeDetails, setRecipesDetails] = useState(undefined);
   const [isrecipeLoading, setIsRecipeLoading] = useState(true);
 
-  if (recipeDetails != undefined) {
-    var {
-      cooking_time,
-      id,
-      image_url,
-      ingrediants,
-      publisher,
-      serving,
-      source_url,
-      title
-    } = recipeDetails;
-  }
-
   useEffect(() => {
-    axios
-      .get(
-        `https://forkify-api.herokuapp.com/api/v2/recipes/${RecipeId}?key=c3414168-d8c1-439f-b9bc-b60f414dae75`
-      )
-      .then(res => {
-        setRecipesDetails(res.data.data.recipe);
-        setIsRecipeLoading(false);
-      });
+    if (RecipeId != undefined) {
+      axios
+        .get(
+          `https://forkify-api.herokuapp.com/api/v2/recipes/${RecipeId}?key=c3414168-d8c1-439f-b9bc-b60f414dae75`
+        )
+        .then(res => {
+          setRecipesDetails(res.data.data.recipe);
+          setIsRecipeLoading(false);
+        });
+    }
   }, [RecipeId]);
 
   return (
