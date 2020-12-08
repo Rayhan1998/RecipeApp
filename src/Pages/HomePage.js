@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+
 import { Box } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
 import RecipesSidebar from "../Components/RecipesSidebar";
+import styled from "styled-components";
 
 import RecipeDetails from "../Components/RecipeDetails";
 
@@ -32,7 +33,7 @@ export default function HomePage() {
         setSearchResults={setSearchResults}
         setErrorText={setErrorText}
       />
-      <div style={{ display: "flex" }}>
+      <MainBodyWrapper>
         <RecipesSidebar
           searchResults={modifiedResults}
           getRecipeId={getRecipeId}
@@ -40,7 +41,14 @@ export default function HomePage() {
           errorText={errorText}
         />
         <RecipeDetails RecipeId={recipeId} />
-      </div>
+      </MainBodyWrapper>
     </Box>
   );
 }
+
+const MainBodyWrapper = styled.div`
+  display: flex;
+  @media (max-width: 1150px) {
+    flex-direction: column;
+  }
+`;

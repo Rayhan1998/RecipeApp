@@ -34,7 +34,7 @@ export default function RecipeDetails({ RecipeId }) {
   }, [RecipeId]);
 
   return (
-    <Box w="70%" h="100%" bg="#f9f5f3" position="relative">
+    <RecipeDetailsWrapper>
       {recipeDetails == undefined ? (
         <Box
           maxWidth="100%"
@@ -94,13 +94,40 @@ export default function RecipeDetails({ RecipeId }) {
             </h1>
           </figure>
           <RecipeInfo>
-            <h2
-              style={{ fontSize: "25px" }}
-            >{`${recipeDetails.cooking_time} minutes`}</h2>
-
-            <h1 style={{ fontSize: "25px" }}>
-              {`${recipeDetails.servings} Servings`}{" "}
-            </h1>
+            <Box display="flex" alignItems="center">
+              <svg
+                style={{ fill: "#f38e82", marginRight: "7px" }}
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                className="bi bi-clock"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z" />
+                <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+              </svg>
+              <h2
+                style={{ fontSize: "25px" }}
+              >{`${recipeDetails.cooking_time} minutes`}</h2>
+            </Box>
+            <Box display="flex" alignItems="center">
+              <svg
+                style={{ fill: "#f38e82", marginRight: "7px" }}
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                className="bi bi-people"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                />
+              </svg>
+              <h1 style={{ fontSize: "25px" }}>
+                {`${recipeDetails.servings} Servings`}{" "}
+              </h1>
+            </Box>
           </RecipeInfo>
           <RecipeIngrediants>
             <h2 className="heading-2">Recipe Ingrediants</h2>
@@ -147,9 +174,20 @@ export default function RecipeDetails({ RecipeId }) {
           </RecipeDirections>
         </>
       )}
-    </Box>
+    </RecipeDetailsWrapper>
   );
 }
+
+const RecipeDetailsWrapper = styled.div`
+  width: 70%;
+  background: #f9f5f3;
+  height: 100%;
+  position: "relative";
+
+  @media (max-width: 1150px) {
+    width: 100%;
+  }
+`;
 
 const RecipeInfo = styled.div`
   display: flex;

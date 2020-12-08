@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Box } from "@chakra-ui/react";
+import styled from "styled-components";
 
 import RecipesTab from "./RecipesTab";
 
@@ -12,7 +12,7 @@ export default function RecipesSidebar({
   errorText
 }) {
   return (
-    <Box w="30%" h="100%">
+    <RecipeSidebarWrapper>
       <h1
         style={{
           marginLeft: "1.5rem",
@@ -36,6 +36,18 @@ export default function RecipesSidebar({
           />
         );
       })}
-    </Box>
+    </RecipeSidebarWrapper>
   );
 }
+
+const RecipeSidebarWrapper = styled.div`
+  width: 30%;
+
+  height: 100%;
+
+  @media (max-width: 1150px) {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+  }
+`;

@@ -46,6 +46,12 @@ const RecipesTabWrapper = styled.div`
     background-color: #f9f5f3;
     transform: translateY(-2px);
   }
+
+  @media (max-width: 1150px) {
+    :not(:last-child) {
+      margin-right: 150px;
+    }
+  }
 `;
 const Ancor = styled.div`
   display: flex;

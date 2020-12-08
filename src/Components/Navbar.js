@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Heading, Box } from "@chakra-ui/react";
 import axios from "axios";
 
-import logo from "../img/logo.png";
+import logo from "../img/favicon.png";
 import styled from "styled-components";
 import { Image } from "@chakra-ui/react";
 export default function Navbar({
@@ -45,9 +46,14 @@ export default function Navbar({
 
   return (
     <Header>
-      <Image src={logo} objectFit="cover" alt="logo" h="40px"></Image>
+      <Box display="flex">
+        <Image src={logo} objectFit="cover" alt="logo" h="40px"></Image>
+        <Heading marginLeft="10px">Foody</Heading>
+      </Box>
+
       <Form onSubmit={formSubmit}>
         <SearchField
+          className="form"
           type="text"
           value={userSearch}
           onChange={inputHandler}
@@ -68,6 +74,17 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 1150px) {
+    flex-direction: column;
+    height: 150px;
+  }
+
+  @media (max-width: 800px) {
+  }
+
+  .search {
+  }
 `;
 
 const Form = styled.form`
@@ -89,5 +106,13 @@ const SearchField = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 800px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 10rem;
   }
 `;
