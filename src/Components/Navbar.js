@@ -57,6 +57,7 @@ export default function Navbar({
           type="text"
           value={userSearch}
           onChange={inputHandler}
+          placeholder="search for recipes"
         ></SearchField>
         <button className="search__btn btn">
           <span className="search__Icon"></span>
