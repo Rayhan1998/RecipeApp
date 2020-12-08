@@ -24,7 +24,7 @@ export default function Navbar({
   useEffect(() => {
     axios
       .get(
-        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${userSearch}&key=a0eb0135-3c80-4a50-b545-d3f6434f4b4a`
+        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${userSearch}&key=c3414168-d8c1-439f-b9bc-b60f414dae75`
       )
       .then(function(res) {
         setSearchResults(res.data.data.recipes);

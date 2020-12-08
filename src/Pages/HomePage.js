@@ -13,6 +13,8 @@ export default function HomePage() {
   const [modifiedResults, setModifiedResults] = useState(searchResults);
   const [clickedRecipeId, setClickedRecipeId] = useState(undefined);
   const [errorText, setErrorText] = useState(null);
+  const [bookmarks, setBookmarks] = useState([]);
+  const [bookMarkDisplay, setBookMarkDisplay] = useState(false);
 
   const { recipeId } = useParams();
   const getRecipeId = id => {
@@ -40,8 +42,14 @@ export default function HomePage() {
           errorText={errorText}
           setErrorText={setErrorText}
           clickedRecipeId={clickedRecipeId}
+          bookmarks={bookmarks}
         />
-        <RecipeDetails RecipeId={recipeId} />
+        <RecipeDetails
+          RecipeId={recipeId}
+          bookmarks={bookmarks}
+          setBookmarks={setBookmarks}
+          bookMarkDisplay={bookMarkDisplay}
+        />
       </div>
     </Box>
   );

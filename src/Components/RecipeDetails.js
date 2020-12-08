@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
+
 import { Box, Image } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/spinner";
 import axios from "axios";
 import styled from "styled-components";
 
-export default function RecipeDetails({ RecipeId }) {
+export default function RecipeDetails({ RecipeId, bookmarks, setBookmarks }) {
   const [recipeDetails, setRecipesDetails] = useState(undefined);
+  const [isrecipeLoading, setIsRecipeLoading] = useState(true);
+
+  const addBookmark = id => {
+    setBookmarks([...bookmarks, recipeDetails]);
+  };
+
+  console.log(bookmarks);
 
   if (recipeDetails != undefined) {
     var {
@@ -26,11 +35,12 @@ export default function RecipeDetails({ RecipeId }) {
       )
       .then(res => {
         setRecipesDetails(res.data.data.recipe);
+        setIsRecipeLoading(false);
       });
   }, [RecipeId]);
 
   return (
-    <Box w="70%" h="100%" bg="#f9f5f3">
+    <Box w="70%" h="100%" bg="#f9f5f3" position="relative">
       {recipeDetails == undefined ? (
         <Box
           maxWidth="100%"
@@ -44,6 +54,18 @@ export default function RecipeDetails({ RecipeId }) {
       ) : (
         <>
           {" "}
+          {isrecipeLoading ? (
+            <Spinner
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="(translate(-50%, -50%))"
+              size="xl"
+              h="100px"
+              w="100px"
+              color="grey"
+            />
+          ) : null}
           <figure
             className="recipe__fig"
             style={{ height: "350px", position: "relative" }}
@@ -86,7 +108,12 @@ export default function RecipeDetails({ RecipeId }) {
               {`${recipeDetails.servings} Servings`}{" "}
             </h1>
 
-            <button className="btn--round btn--bookmark">
+            <button
+              className="btn--round btn--bookmark"
+              onClick={() => {
+                addBookmark(recipeDetails.id);
+              }}
+            >
               <svg
                 style={{ color: "orange" }}
                 width="1em"
