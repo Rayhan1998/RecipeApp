@@ -7,12 +7,23 @@ import RecipesTab from "./RecipesTab";
 export default function RecipesSidebar({
   searchResults,
   getRecipeId,
-  errorText,
-  setErrorText,
-  clickedRecipeId
+
+  clickedRecipeId,
+  errorText
 }) {
   return (
     <Box w="30%" h="100%">
+      <h1
+        style={{
+          marginLeft: "1.5rem",
+          fontSize: "1.3rem",
+          lineHeight: "1.5",
+          fontWeight: "600",
+          marginTop: "10px"
+        }}
+      >
+        {errorText}
+      </h1>
       {searchResults.map(rec => {
         return (
           <RecipesTab

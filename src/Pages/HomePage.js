@@ -12,6 +12,7 @@ export default function HomePage() {
   const [searchResults, setSearchResults] = useState([]);
   const [modifiedResults, setModifiedResults] = useState(searchResults);
   const [clickedRecipeId, setClickedRecipeId] = useState(undefined);
+  const [errorText, setErrorText] = useState("");
 
   const { recipeId } = useParams();
   const getRecipeId = id => {
@@ -29,12 +30,14 @@ export default function HomePage() {
         setUserSearch={setUserSearch}
         userSearch={userSearch}
         setSearchResults={setSearchResults}
+        setErrorText={setErrorText}
       />
       <div style={{ display: "flex" }}>
         <RecipesSidebar
           searchResults={modifiedResults}
           getRecipeId={getRecipeId}
           clickedRecipeId={clickedRecipeId}
+          errorText={errorText}
         />
         <RecipeDetails RecipeId={recipeId} />
       </div>

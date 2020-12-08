@@ -20,6 +20,7 @@ export default function Navbar({
   const inputHandler = e => {
     setUserSearch(e.target.value);
   };
+
   //   Useeffect calles api and stores the data into an array
   useEffect(() => {
     axios
@@ -28,8 +29,11 @@ export default function Navbar({
       )
       .then(function(res) {
         setSearchResults(res.data.data.recipes);
-        if (searchResults.length == 0) {
-          setErrorText("please search again");
+        console.log(res.data.results);
+        if (res.data.results == 0) {
+          setErrorText("Recipe Not Found Please Search Again");
+        } else {
+          setErrorText("");
         }
 
         setIsFormSubmit(false);
