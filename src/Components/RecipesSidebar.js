@@ -14,13 +14,6 @@ export default function RecipesSidebar({
   return (
     <Box w="30%" h="100%">
       {searchResults.map(rec => {
-        // let { title } = rec.title;
-        // let newTitle =
-        //   title
-        //     .split("")
-        //     .splice(0, 25)
-        //     .join("") + "...";
-
         return (
           <RecipesTab
             key={rec.id}

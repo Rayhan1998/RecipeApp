@@ -30,7 +30,7 @@ export default function RecipeDetails({ RecipeId }) {
   }, [RecipeId]);
 
   return (
-    <Box w="70%" h="100%" bg="pink" bg="#f9f5f3">
+    <Box w="70%" h="100%" bg="#f9f5f3">
       {recipeDetails == undefined ? (
         <Box
           maxWidth="100%"
@@ -79,14 +79,14 @@ export default function RecipeDetails({ RecipeId }) {
           </figure>
           <RecipeInfo>
             <h2
-              style={{ fontSize: "18px" }}
+              style={{ fontSize: "25px" }}
             >{`${recipeDetails.cooking_time} minutes`}</h2>
 
-            <h1 style={{ fontSize: "18px" }}>
+            <h1 style={{ fontSize: "25px" }}>
               {`${recipeDetails.servings} Servings`}{" "}
             </h1>
 
-            <Box display="flex" alignItems="center">
+            <button className="btn--round btn--bookmark">
               <svg
                 style={{ color: "orange" }}
                 width="1em"
@@ -101,10 +101,7 @@ export default function RecipeDetails({ RecipeId }) {
                   d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5V2z"
                 />
               </svg>
-              <h2 style={{ fontSize: "18px" }} className="bookmark">
-                Bookmark
-              </h2>
-            </Box>
+            </button>
           </RecipeInfo>
           <RecipeIngrediants>
             <h2 className="heading-2">Recipe Ingrediants</h2>
@@ -158,11 +155,34 @@ export default function RecipeDetails({ RecipeId }) {
 const RecipeInfo = styled.div`
   display: flex;
   justify-content: space-around;
-  height: 150px;
+  height: 200px;
   align-items: center;
 
   .logo {
     margin-left: 10px;
+  }
+
+  .btn--round {
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    height: 4.5rem;
+    width: 4.5rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn--round:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn--round svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: #fff;
   }
 `;
 
@@ -208,7 +228,7 @@ const RecipeDirections = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+
   padding-top: 50px;
 
   .heading--2 {
