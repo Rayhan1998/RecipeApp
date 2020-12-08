@@ -9,8 +9,7 @@ export default function Navbar({
   setUserSearch,
   userSearch,
   setSearchResults,
-  setErrorText,
-  searchResults
+  setErrorText
 }) {
   const [isFormSubmit, setIsFormSubmit] = useState(false);
   const formSubmit = e => {
