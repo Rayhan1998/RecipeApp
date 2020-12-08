@@ -51,6 +51,10 @@ const RecipesTabWrapper = styled.div`
     :not(:last-child) {
       margin-right: 150px;
     }
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 `;
 const Ancor = styled.div`
