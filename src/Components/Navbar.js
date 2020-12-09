@@ -114,5 +114,6 @@ const SearchField = styled.input`
 
   @media (max-width: 600px) {
     width: 10rem;
+    font-size: 1rem;
   }
 `;
