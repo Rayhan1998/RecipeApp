@@ -9,11 +9,11 @@ import styled from "styled-components";
 import RecipeDetails from "../Components/RecipeDetails";
 
 export default function HomePage() {
-  const [userSearch, setUserSearch] = useState("");
+  const [userSearch, setUserSearch] = useState(""); // stores users query
   const [searchResults, setSearchResults] = useState([]);
   const [modifiedResults, setModifiedResults] = useState(searchResults);
   const [clickedRecipeId, setClickedRecipeId] = useState(undefined);
-  const [errorText, setErrorText] = useState("");
+  const [errorText, setErrorText] = useState(""); // stores wheither user search is valid or not
 
   const { recipeId } = useParams();
   const getRecipeId = id => {
