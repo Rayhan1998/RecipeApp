@@ -39,5 +39,3 @@ npm run start
 ## Built With
 
 - [React](https://reactjs.org/) - The JavaScript framework used
-
-Design Styling by by Jonas Schmedtmann
