@@ -9,6 +9,7 @@ export default function RecipeDetails({ RecipeId }) {
   const [recipeDetails, setRecipesDetails] = useState(undefined);
   const [isrecipeLoading, setIsRecipeLoading] = useState(true);
 
+  // api request for function details using recipe id
   useEffect(() => {
     if (RecipeId != undefined) {
       axios
