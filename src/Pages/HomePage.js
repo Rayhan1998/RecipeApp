@@ -26,7 +26,7 @@ export default function HomePage() {
   }, [searchResults]);
 
   return (
-    <Box maxW="80rem" minH="1200px" bg="white" m="50px auto" borderRadius="9px">
+    <Box minH="1200px" bg="white" borderRadius="9px">
       <Navbar
         setUserSearch={setUserSearch}
         userSearch={userSearch}

@@ -21,7 +21,7 @@ export default function Navbar({
     setUserSearch(e.target.value);
   };
 
-  //   Useeffect calles api and stores the data into an array
+  //   UseEffect calles api and stores the data into an array
   useEffect(() => {
     axios
       .get(
